@@ -47,7 +47,7 @@ jobs:
       - name: Assemble F-Droid release apk
         env:
           MALICIOUS_SITE_PROTECTION_AUTH_TOKEN: ${{ secrets.MALICIOUS_SITE_PROTECTION_AUTH_TOKEN }}
-        run: ./gradlew assembleFdroidRelease --no-configuration-cache
+        run: ./gradlew assembleFdroidRelease --configuration-cache
 
       - name: Create Asana task when workflow failed on push to develop
         if: ${{ failure() && github.ref == 'refs/heads/develop' && github.event_name == 'push' }}
